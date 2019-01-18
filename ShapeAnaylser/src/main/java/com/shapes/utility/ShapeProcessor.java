@@ -3,6 +3,7 @@ package com.shapes.utility;
 import com.shapes.domain.Shape;
 import com.shapes.domain.ShapeTypes;
 import com.shapes.domain.Triangle;
+import com.shapes.exceptions.InvalidShapeException;
 import com.shapes.exceptions.ShapeIsNotSupportedException;
 
 /**
@@ -24,8 +25,12 @@ public class ShapeProcessor {
 	 * @param shape
 	 * @return Shape Type
 	 * @throws ShapeIsNotSupportedException 
+	 * @throws InvalidShapeException 
 	 */
-	public static ShapeTypes detectShapeType(Shape shape) throws ShapeIsNotSupportedException {
+	public static ShapeTypes detectShapeType(Shape shape) throws ShapeIsNotSupportedException, InvalidShapeException {
+		if(shape == null)
+			throw new InvalidShapeException();
+		
 		ShapeTypes result = null;
 
 		if (shape instanceof Triangle) {

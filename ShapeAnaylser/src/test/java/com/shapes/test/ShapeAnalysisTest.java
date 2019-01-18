@@ -38,6 +38,20 @@ public class ShapeAnalysisTest {
 		assertEquals(ShapeTypes.Scalene_Triangle, ShapeProcessor.detectShapeType(triangle));
 	}
 	
+	@Test(expected = InvalidShapeException.class)
+	public void testDetectTriangleIsNull() throws InvalidSideLengthException, InvalidShapeException, ShapeIsNotSupportedException {
+		//test null triangle
+		Triangle triangle = null;
+		assertEquals(ShapeTypes.Scalene_Triangle, ShapeProcessor.detectShapeType(triangle));
+	}
+	
+	@Test(expected = InvalidSideLengthException.class)
+	public void testDetectTriangleWithInvalidLength() throws InvalidSideLengthException, InvalidShapeException, ShapeIsNotSupportedException {
+		//test triangle with invalid length
+		Triangle triangle = new Triangle(-5, 0, 10);
+		assertEquals(ShapeTypes.Scalene_Triangle, ShapeProcessor.detectShapeType(triangle));
+	}
+	
 	// ------------------ /Triangle analysis tests ----------------------------------
 
 	// ------------------ ShapeProcessor tests --------------------------------------
