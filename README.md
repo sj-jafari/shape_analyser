@@ -1,1 +1,1 @@
-# shape_analyser
+Please find the documentation in "Docs\Shape Analyser Doc.pdf".
